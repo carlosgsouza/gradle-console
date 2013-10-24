@@ -1,12 +1,5 @@
-import org.gradle.api.Plugin
-import org.gradle.api.Project
-import org.gradle.api.tasks.JavaExec
-
-apply plugin: "groovy"
-apply plugin: ConsolePlugin
-
-group='gradle.plugin'
-version='0.1'
+apply plugin: 'groovy'
+apply plugin: 'maven'
 
 dependencies {
     compile gradleApi()
@@ -17,11 +10,13 @@ repositories {
     mavenCentral()
 }
 
-class ConsolePlugin implements Plugin<Project> {
-	void apply(Project project) {
-		project.rootProject.task('console', dependsOn: 'classes', type: JavaExec) {
-			main = 'groovy.ui.Console'
-			classpath = project.sourceSets.main.runtimeClasspath
-		}
-	}
+group = 'org.gradle'
+version = '1.0-SNAPSHOT'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))
+        }
+    }
 }
