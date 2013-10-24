@@ -17,15 +17,4 @@ class ConsolePluginSpec extends Specification {
 		then:
 		project.tasks.console
 	}
-	
-	def "should set the classpath according to the source sets defined in the project"() {
-		given:
-		Project project = ProjectBuilder.builder().build()
-		
-		when:
-		project.apply plugin: ConsolePlugin
-
-		then:
-		project.tasks.console
-	}
 }

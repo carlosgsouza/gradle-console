@@ -1,12 +1,4 @@
-apply plugin: 'groovy'
 
-dependencies {
-    groovy localGroovy()
-}
-
-repositories {
-    mavenCentral()
-}
 
 buildscript {
     repositories {
