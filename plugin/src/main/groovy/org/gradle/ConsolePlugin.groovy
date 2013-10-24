@@ -12,12 +12,7 @@ class ConsolePlugin implements Plugin<Project> {
 			
 			project.apply plugin: "groovy"
 			project.dependencies.add("groovy", project.dependencies.localGroovy())
-			
-			try {
-				classpath = project.sourceSets.main.runtimeClasspath
-			} catch(e) {
-				println "WARNING: No sourceSets defined. If you have any source files in your projects, they won't be loaded"
-			}
+			classpath = project.sourceSets.main.runtimeClasspath
 		}
 	}
 }
