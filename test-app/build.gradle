@@ -1,0 +1,24 @@
+apply plugin: 'groovy'
+
+dependencies {
+    compile gradleApi()
+    groovy localGroovy()
+}
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        maven {
+            url uri('../repo')
+        }
+    }
+    dependencies {
+        classpath group: 'org.gradle', name: 'console', version: '1.0-SNAPSHOT'
+    }
+}
+
+
+apply plugin: 'console'
