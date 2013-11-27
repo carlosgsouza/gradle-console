@@ -4,7 +4,7 @@ apply plugin: 'eclipse'
 
 dependencies {
     compile gradleApi()
-    groovy localGroovy()
+    compile localGroovy()
 
 	testCompile "org.spockframework:spock-core:0.7-groovy-1.8"
 	testCompile "cglib:cglib-nodep:2.2.2"
@@ -24,4 +24,8 @@ uploadArchives {
             repository(url: uri('../repo'))
         }
     }
+}
+
+task wrapper(type:Wrapper) {
+    gradleVersion = "1.8"
 }
