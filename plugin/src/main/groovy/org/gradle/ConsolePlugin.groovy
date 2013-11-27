@@ -11,7 +11,7 @@ class ConsolePlugin implements Plugin<Project> {
 			main = 'groovy.ui.Console'
 			
 			project.apply plugin: "groovy"
-			project.dependencies.add("groovy", project.dependencies.localGroovy())
+			project.dependencies.add("compile", project.dependencies.localGroovy())
 			classpath = project.sourceSets.main.runtimeClasspath
 		}
 	}
