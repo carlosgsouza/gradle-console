@@ -1,4 +1,4 @@
-package org.gradle
+package carlosgsouza
 
 import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder
