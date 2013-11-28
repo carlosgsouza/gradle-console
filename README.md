@@ -14,7 +14,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'org.gradle', name: 'console', version: '1.0'
+        classpath group: 'carlosgsouza', name: 'gradle-console', version: '1.0'
     }
 }
 ```
