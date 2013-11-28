@@ -1,6 +1,6 @@
 apply plugin: 'groovy'
 apply plugin: 'maven'
-apply plugin: 'signing'
+// apply plugin: 'signing'
 apply plugin: 'eclipse'
 
 dependencies {
@@ -16,7 +16,7 @@ repositories {
     mavenCentral()
 }
 
-group = 'org.gradle'
+group = 'carlosgsouza'
 version = '1.0'
 
 
@@ -31,9 +31,11 @@ artifacts {
     archives sourcesJar
 }
 
+/*
 signing {
     sign configurations.archives
 }
+
 
 uploadArchives {
     repositories {
@@ -74,9 +76,9 @@ uploadArchives {
         }
     }
 }
+*/
 
-
-uploadArchivesLocally {
+uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: uri('../repo'))

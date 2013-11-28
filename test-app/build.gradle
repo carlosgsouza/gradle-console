@@ -7,7 +7,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath group: 'org.gradle', name: 'console', version: '1.0-SNAPSHOT'
+        classpath group: 'carlosgsouza', name: 'gradle-console', version: '1.0'
     }
 }
 
