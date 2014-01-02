@@ -1,6 +1,6 @@
 apply plugin: 'groovy'
 apply plugin: 'maven'
-// apply plugin: 'signing'
+apply plugin: 'signing'
 apply plugin: 'eclipse'
 
 dependencies {
@@ -16,7 +16,7 @@ repositories {
     mavenCentral()
 }
 
-group = 'carlosgsouza'
+group = 'net.carlosgsouza'
 version = '1.0'
 
 
@@ -31,7 +31,7 @@ artifacts {
     archives sourcesJar
 }
 
-/*
+
 signing {
     sign configurations.archives
 }
@@ -76,8 +76,8 @@ uploadArchives {
         }
     }
 }
-*/
 
+/*
 uploadArchives {
     repositories {
         mavenDeployer {
@@ -85,6 +85,7 @@ uploadArchives {
         }
     }
 }
+*/
 
 task wrapper(type:Wrapper) {
     gradleVersion = "1.8"

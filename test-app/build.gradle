@@ -3,11 +3,11 @@ apply plugin: "java"
 buildscript {
     repositories {
         maven {
-            url uri('../repo')
+            url uri('http://oss.sonatype.org/service/local/repositories/netcarlosgsouza-1000/')
         }
     }
     dependencies {
-        classpath group: 'carlosgsouza', name: 'gradle-console', version: '1.0'
+        classpath group: 'net.carlosgsouza', name: 'gradle-console', version: '1.0'
     }
 }
 
