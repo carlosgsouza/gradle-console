@@ -19,6 +19,10 @@ repositories {
 group = 'net.carlosgsouza'
 version = '1.0'
 
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from 'build/docs/javadoc'
+}
 
 task sourcesJar(type: Jar) {
     from sourceSets.main.allSource
@@ -28,6 +32,7 @@ task sourcesJar(type: Jar) {
 artifacts {
     archives jar
 
+    archives javadocJar
     archives sourcesJar
 }
 
