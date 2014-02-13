@@ -2,7 +2,7 @@ gradle-console
 ============
 this plugin for [Gradle](http://www.gradle.org/) allows you to easily interact with your Groovy and Java applications using the [Groovy Console](http://groovy.codehaus.org/Groovy+Console). 
 
-![alt text](http://groovy.codehaus.org/download/attachments/36800/GroovyConsole.gif?version=1&modificationDate=1193815296813&api=v2 "Groovy Console")
+![alt text](readme-files/groovy_console.png "Groovy Console")
 
 Just run <code>gradle console</code> and you will get a console window with all your runtime dependencies loaded for you. This is useful in case you need to interact your project dependencies or your source code in a fast and flexible way.
 
