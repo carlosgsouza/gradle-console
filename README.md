@@ -20,6 +20,8 @@ buildscript {
         classpath group: 'net.carlosgsouza', name: 'gradle-console', version: '1.0'
     }
 }
+
+apply plugin: 'console'
 ```
 
 ## Usage
