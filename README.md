@@ -8,7 +8,7 @@ Just run <code>gradle console</code> and you will get a console window with all 
 
 
 
-## Instalation
+## Installation
 Just add the following snippet of code to your <code>build.gradle</code> file
 
 ```groovy
