@@ -1,6 +1,6 @@
 gradle-console
 ============
-this plugin for [Gradle](http://www.gradle.org/) allows you to easily interact with your Groovy and Java applications using the [Groovy Console](http://groovy.codehaus.org/Groovy+Console). 
+This plugin for [Gradle](http://www.gradle.org/) allows you to easily interact with your Groovy and Java applications using the [Groovy Console](http://groovy.codehaus.org/Groovy+Console).
 
 ![alt text](readme-files/groovy_console.png "Groovy Console")
 
@@ -32,7 +32,7 @@ gradle console
 ```
 
 ## About this project
-This is just the first version of this plugin and we are couting on your feedback to make it better! 
+This is just the first version of this plugin and we are counting on your feedback to make it better!
 Don't hesitate to send us an e-mail, create an issue on GitHub or, even better, submit a pull request. 
 
 ## Acknowledgement
