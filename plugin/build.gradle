@@ -2,10 +2,15 @@ plugins {
   id 'nu.studer.plugindev' version '1.0.3'
   id 'groovy'
   id 'eclipse'
+  id ConsolePlugin
 }
 
 group = 'net.carlosgsouza'
-version = '1.0'
+version = '1.0.1'
+
+configurations {
+  consolePlugin
+}
 
 dependencies {
   compile gradleApi()
@@ -19,7 +24,7 @@ dependencies {
 plugindev {
     pluginId = 'net.carlosgsouza.console'
     pluginImplementationClass 'carlosgsouza.ConsolePlugin'
-    pluginDescription 'Easily interact with your Groovy and Java applications'
+    pluginDescription 'Easily interact with your Groovy and Java source code'
     pluginLicenses 'Apache-2.0'
     pluginTags 'gradle', 'plugin', 'console'
     authorId 'carlosgsouza'
@@ -35,8 +40,21 @@ plugindev {
 bintray {
     user = System.getenv().get("BINTRAY_USER")
     key = System.getenv().get("BINTRAY_API_KEY")
-    pkg.repo = 'gradle-plugins'
+    pkg.repo = 'maven'
 }
+
+class ConsolePlugin implements Plugin<Project> {
+  void apply(Project project) {
+    project.rootProject.task('console', dependsOn: 'classes', type: JavaExec) {
+      main = 'groovy.ui.Console'
+      
+      project.apply plugin: "groovy"
+      project.dependencies.add("compile", project.dependencies.localGroovy())
+      classpath = project.sourceSets.main.runtimeClasspath
+    }
+  }
+}
+
 
 /*
 uploadArchives {
