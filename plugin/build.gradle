@@ -1,85 +1,41 @@
-apply plugin: 'groovy'
-apply plugin: 'maven'
-apply plugin: 'signing'
-apply plugin: 'eclipse'
+plugins {
+  id 'nu.studer.plugindev' version '1.0.3'
+  id 'groovy'
+  id 'eclipse'
+}
+
+group = 'net.carlosgsouza'
+version = '1.0'
 
 dependencies {
-    compile gradleApi()
-    compile localGroovy()
+  compile gradleApi()
+  compile localGroovy()
 
 	testCompile "org.spockframework:spock-core:0.7-groovy-1.8"
 	testCompile "cglib:cglib-nodep:2.2.2"
 	testCompile "org.objenesis:objenesis:1.2"
 }
 
-repositories {
-    mavenCentral()
+plugindev {
+    pluginId = 'net.carlosgsouza.console'
+    pluginImplementationClass 'carlosgsouza.ConsolePlugin'
+    pluginDescription 'Easily interact with your Groovy and Java applications'
+    pluginLicenses 'Apache-2.0'
+    pluginTags 'gradle', 'plugin', 'console'
+    authorId 'carlosgsouza'
+    authorName 'Carlos Souza'
+    authorEmail 'carlosgsouza@gmail.com'
+    projectUrl 'https://carlosgsouza.github.io/gradle-console/'
+    projectIssuesUrl 'https://github.com/carlosgsouza/gradle-console/issues'
+    projectVcsUrl 'https://github.com/carlosgsouza/gradle-console.git'
+    projectInceptionYear '2014'
+    done() // do not omit this
 }
 
-group = 'net.carlosgsouza'
-version = '1.0'
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from 'build/docs/javadoc'
-}
-
-task sourcesJar(type: Jar) {
-    from sourceSets.main.allSource
-    classifier = 'sources'
-}
-
-artifacts {
-    archives jar
-
-    archives javadocJar
-    archives sourcesJar
-}
-
-
-signing {
-    sign configurations.archives
-}
-
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-              authentication(userName: sonatypeUsername, password: sonatypePassword)
-            }
-
-            pom.project {
-               name 'gradle-console'
-               packaging 'jar'
-               description 'Easily interact with your Groovy and Java applications'
-               url 'http://carlosgsouza.github.io/gradle-console/'
-
-               scm {
-                   url 'scm:git@github.com:carlosgsouza/gradle-console.git'
-                   connection 'scm:git@github.com:carlosgsouza/gradle-console.git'
-                   developerConnection 'scm:git@github.com:carlosgsouza/gradle-console.git'
-               }
-
-               licenses {
-                   license {
-                       name 'The Apache Software License, Version 2.0'
-                       url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                       distribution 'repo'
-                   }
-               }
-
-               developers {
-                   developer {
-                       id 'carlosgsouza'
-                       name 'Carlos Souza'
-                   }
-               }
-           }
-        }
-    }
+bintray {
+    user = System.getenv().get("BINTRAY_USER")
+    key = System.getenv().get("BINTRAY_API_KEY")
+    pkg.repo = 'gradle-plugins'
 }
 
 /*
