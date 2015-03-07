@@ -1,12 +1,6 @@
-apply plugin: "java"
-
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.carlosgsouza', name: 'gradle-console', version: '1.0'
-    }
+plugins {
+	id "java"
+	id "net.carlosgsouza.console" version "1.0.1"
 }
 
 repositories {
