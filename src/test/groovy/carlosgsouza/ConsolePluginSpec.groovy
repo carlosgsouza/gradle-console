@@ -16,5 +16,6 @@ class ConsolePluginSpec extends Specification {
 
 		then:
 		project.tasks.console
+		println project.configurations['compile']
 	}
 }

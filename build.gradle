@@ -2,11 +2,10 @@ plugins {
   id 'nu.studer.plugindev' version '1.0.3'
   id 'groovy'
   id 'eclipse'
-  id ConsolePlugin
 }
 
 group = 'net.carlosgsouza'
-version = '1.0.1'
+version = '1.0.3'
 
 configurations {
   consolePlugin
@@ -14,9 +13,12 @@ configurations {
 
 dependencies {
   compile gradleApi()
-  compile localGroovy()
+  compile "org.codehaus.groovy:groovy-all:2.3.9"
 
-	testCompile "org.spockframework:spock-core:0.7-groovy-1.8"
+	testCompile "org.spockframework:spock-core:1.0-groovy-2.3", {
+      // Gradle 2.3 tries to load Groovy 2.3.9 and Spock tries to load Groovy 2.3.10. Let's all use the same Groovy version!
+      exclude module:"groovy-all"
+  }
 	testCompile "cglib:cglib-nodep:2.2.2"
 	testCompile "org.objenesis:objenesis:1.2"
 }
@@ -43,18 +45,9 @@ bintray {
     pkg.repo = 'maven'
 }
 
-class ConsolePlugin implements Plugin<Project> {
-  void apply(Project project) {
-    project.rootProject.task('console', dependsOn: 'classes', type: JavaExec) {
-      main = 'groovy.ui.Console'
-      
-      project.apply plugin: "groovy"
-      project.dependencies.add("compile", project.dependencies.localGroovy())
-      classpath = project.sourceSets.main.runtimeClasspath
-    }
-  }
+eclipse.classpath {
+  downloadSources = true
 }
-
 
 /*
 uploadArchives {
@@ -67,5 +60,5 @@ uploadArchives {
 */
 
 task wrapper(type:Wrapper) {
-    gradleVersion = "1.8"
+    gradleVersion = "2.3"
 }
