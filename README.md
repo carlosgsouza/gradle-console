@@ -9,18 +9,24 @@ Just run <code>gradle console</code> and you will get a console window with all 
 
 
 ## Installation
-Just add the following snippet of code to your <code>build.gradle</code> file
+Add one of the following snippets to your build.gradle file according to the version of Gradle you are using:
+### Gradle >= 2.1
+```groovy
+plugins {
+	id "net.carlosgsouza.console" version "1.0.1"
+}
+```
 
+### Gradle < 2.1
 ```groovy
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
-        classpath group: 'net.carlosgsouza', name: 'gradle-console', version: '1.0'
+        classpath group: 'net.carlosgsouza', name: 'gradle-console', version: '1.0.1'
     }
 }
-
 apply plugin: 'console'
 ```
 
@@ -32,8 +38,7 @@ gradle console
 ```
 
 ## About this project
-This is just the first version of this plugin and we are counting on your feedback to make it better!
-Don't hesitate to send us an e-mail, create an issue on GitHub or, even better, submit a pull request. 
+This is still an young plugin and I am counting on your feedback to make it better! Don't hesitate to send me an e-mail, create an issue on GitHub or, even better, submit a pull request. 
 
 ## Acknowledgement
 This plugin was created based on [this post](http://piraguaconsulting.blogspot.com.br/2012/02/gradle-groovy-console.html) by Mike Hugo. Thanks, Mike!
