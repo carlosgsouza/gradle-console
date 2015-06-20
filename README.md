@@ -38,8 +38,7 @@ gradle console
 ```
 
 ## About this project
-This is just the first version of this plugin and we are counting on your feedback to make it better!
-Don't hesitate to send us an e-mail, create an issue on GitHub or, even better, submit a pull request. 
+This is still an young plugin and I am counting on your feedback to make it better! Don't hesitate to send me an e-mail, create an issue on GitHub or, even better, submit a pull request. 
 
 ## Acknowledgement
 This plugin was created based on [this post](http://piraguaconsulting.blogspot.com.br/2012/02/gradle-groovy-console.html) by Mike Hugo. Thanks, Mike!
