@@ -9,18 +9,24 @@ Just run <code>gradle console</code> and you will get a console window with all 
 
 
 ## Installation
-Just add the following snippet of code to your <code>build.gradle</code> file
+Add one of the following snippets to your build.gradle file according to the version of Gradle you are using:
+### Gradle >= 2.1
+```groovy
+plugins {
+	id "net.carlosgsouza.console" version "1.0.1"
+}
+```
 
+### Gradle < 2.1
 ```groovy
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
-        classpath group: 'net.carlosgsouza', name: 'gradle-console', version: '1.0'
+        classpath group: 'net.carlosgsouza', name: 'gradle-console', version: '1.0.1'
     }
 }
-
 apply plugin: 'console'
 ```
 
