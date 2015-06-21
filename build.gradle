@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'net.carlosgsouza'
-version = '1.0.3'
+version = '1.1'
 
 configurations {
   consolePlugin

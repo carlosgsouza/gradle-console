@@ -10,6 +10,7 @@ repositories {
 dependencies {
     compile 'org.apache.commons:commons-math3:3.2'
     testCompile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+    providedCompile 'org.apache.commons:commons-lang3:3.4'
 }
 
 task wrapper(type:Wrapper) {
