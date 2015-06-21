@@ -1,57 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta charset="UTF-8">
     <title>gradle console by carlosgsouza</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
-    <div id="container">
-      <div class="inner">
+    <section class="page-header">
+      <h1 class="project-name">gradle console</h1>
+      <h2 class="project-tagline">Easily interact with your Groovy and Java applications</h2>
+      <a href="https://github.com/carlosgsouza/gradle-console" class="btn">View on GitHub</a>
+      <a href="https://github.com/carlosgsouza/gradle-console/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/carlosgsouza/gradle-console/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <header>
-          <h1>gradle console</h1>
-          <h2>Easily interact with your Groovy and Java applications</h2>
-        </header>
+    <section class="main-content">
+      <h1>
+<a id="gradle-console" class="anchor" href="#gradle-console" aria-hidden="true"><span class="octicon octicon-link"></span></a>gradle-console</h1>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/carlosgsouza/gradle-console/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/carlosgsouza/gradle-console/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/carlosgsouza/gradle-console" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
+<p>This plugin for <a href="http://www.gradle.org/">Gradle</a> allows you to easily interact with your Groovy and Java applications using the <a href="http://groovy.codehaus.org/Groovy+Console">Groovy Console</a>.</p>
 
-        <hr>
+<p><img src="readme-files/groovy_console.png" alt="alt text" title="Groovy Console"></p>
 
-        <section id="main_content">
-          <p>This plugin allows you to easily interact with your Groovy and Java applications.
-Just run <code>gradle console</code> and you will get a console window with all your runtime dependencies loaded for you.
-This is useful in case you need to interact your project dependencies or your source code in a fast and flexible way.</p>
+<p>Just run <code>gradle console</code> and you will get a console window with all your runtime dependencies loaded for you. This is useful in case you need to interact your project dependencies or your source code in a fast and flexible way.</p>
 
 <h2>
-<a name="instalation" class="anchor" href="#instalation"><span class="octicon octicon-link"></span></a>Instalation</h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<p>Just add the following snippet of code to your <code>build.gradle</code> file</p>
+<p>Add one of the following snippets to your build.gradle file according to the version of Gradle you are using:</p>
 
-<div class="highlight highlight-groovy"><pre><span class="n">buildscript</span> <span class="o">{</span>
-    <span class="n">repositories</span> <span class="o">{</span>
-        <span class="n">mavenCentral</span><span class="o">()</span>
-    <span class="o">}</span>
-    <span class="n">dependencies</span> <span class="o">{</span>
-        <span class="n">classpath</span> <span class="nl">group:</span> <span class="s1">'carlosgsouza'</span><span class="o">,</span> <span class="nl">name:</span> <span class="s1">'gradle-console'</span><span class="o">,</span> <span class="nl">version:</span> <span class="s1">'1.0'</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</pre></div>
+<h3>
+<a id="gradle--21" class="anchor" href="#gradle--21" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gradle &gt;= 2.1</h3>
+
+<div class="highlight highlight-groovy"><pre>plugins {
+    id <span class="pl-s"><span class="pl-pds">"</span>net.carlosgsouza.console<span class="pl-pds">"</span></span> version <span class="pl-s"><span class="pl-pds">"</span>1.0.1<span class="pl-pds">"</span></span>
+}</pre></div>
+
+<h3>
+<a id="gradle--21-1" class="anchor" href="#gradle--21-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gradle &lt; 2.1</h3>
+
+<div class="highlight highlight-groovy"><pre>buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath <span class="pl-c1">group</span>: <span class="pl-s"><span class="pl-pds">'</span>net.carlosgsouza<span class="pl-pds">'</span></span>, <span class="pl-c1">name</span>: <span class="pl-s"><span class="pl-pds">'</span>gradle-console<span class="pl-pds">'</span></span>, <span class="pl-c1">version</span>: <span class="pl-s"><span class="pl-pds">'</span>1.0.1<span class="pl-pds">'</span></span>
+    }
+}
+apply <span class="pl-c1">plugin</span>: <span class="pl-s"><span class="pl-pds">'</span>console<span class="pl-pds">'</span></span></pre></div>
 
 <h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
 
 <p>Invoke the <code>console</code> task using gradle</p>
 
@@ -59,18 +62,24 @@ This is useful in case you need to interact your project dependencies or your so
 </code></pre>
 
 <h2>
-<a name="about-this-project" class="anchor" href="#about-this-project"><span class="octicon octicon-link"></span></a>About this project</h2>
+<a id="about-this-project" class="anchor" href="#about-this-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>About this project</h2>
 
-<p>This is just the first version of this plugin and we are couting on your feedback to make it better! 
-Don't hesitate to send us an e-mail, create an issue on GitHub or, even better, submit a pull request. </p>
-        </section>
+<p>This is still an young plugin and I am counting on your feedback to make it better! Don't hesitate to send me an e-mail, create an issue on GitHub or, even better, submit a pull request. </p>
 
-        <footer>
-          gradle console is maintained by <a href="https://github.com/carlosgsouza">carlosgsouza</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+<h2>
+<a id="acknowledgement" class="anchor" href="#acknowledgement" aria-hidden="true"><span class="octicon octicon-link"></span></a>Acknowledgement</h2>
 
-                  <script type="text/javascript">
+<p>This plugin was created based on <a href="http://piraguaconsulting.blogspot.com.br/2012/02/gradle-groovy-console.html">this post</a> by Mike Hugo. Thanks, Mike!</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/carlosgsouza/gradle-console">gradle console</a> is maintained by <a href="https://github.com/carlosgsouza">carlosgsouza</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -81,7 +90,6 @@ Don't hesitate to send us an e-mail, create an issue on GitHub or, even better, 
             } catch(err) {}
           </script>
 
-      </div>
-    </div>
   </body>
 </html>
+
