@@ -2,7 +2,7 @@ package carlosgsouza
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.internal.artifacts.dsl.dependencies.DefaultDependencyHandler
+import org.gradle.api.artifacts.Configuration
 import org.gradle.api.tasks.JavaExec
 
 class ConsolePlugin implements Plugin<Project> {
@@ -11,8 +11,11 @@ class ConsolePlugin implements Plugin<Project> {
 			main = 'groovy.ui.Console'
 			
 			project.apply plugin: "groovy"
-			project.dependencies.add("compile", project.dependencies.localGroovy())
-			classpath = project.sourceSets.main.runtimeClasspath
+			
+			Configuration consoleRuntime = project.configurations.create("consoleRuntime")
+			consoleRuntime.dependencies.add(project.dependencies.localGroovy())
+			
+			classpath = project.sourceSets.main.runtimeClasspath + project.files(consoleRuntime.asPath)
 		}
 	}
 }

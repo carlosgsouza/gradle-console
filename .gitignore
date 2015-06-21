@@ -1,5 +1,8 @@
 /repo/
 **/build/
 **/.gradle
-plugin/\.*
-.idea
+**/.idea
+**/bin/
+**/.classpath
+**/.project
+**/.settings/

@@ -1,0 +1,31 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		maven {
+			url '../../../../repo/'
+		}
+	}
+   
+   dependencies {
+		classpath group:'net.carlosgsouza', name:'gradle-console', version:"1.0.3"
+	} 
+}
+
+plugins {
+	id "java"
+	id "war"
+}
+
+repositories {
+	mavenCentral()
+}
+apply plugin:"console"
+
+dependencies {
+    compile 'org.apache.commons:commons-math3:3.2'
+    testCompile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+}
+
+task wrapper(type:Wrapper) {
+    gradleVersion = "1.8"
+}
